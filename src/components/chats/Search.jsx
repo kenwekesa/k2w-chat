@@ -45,13 +45,16 @@ function Search() {
         <div className='search_form'>
             <input type='text' placeholder='Find the chat' onKeyDown={handleKey} onChange={(e)=>setUsername(e.target.value)}/>
         </div>
-        {user &&
-        <div className="user_chat">
+        {users.map(user=> 
+        (
+
+          <div className="user_chat">
             <img className='profile_pic' src={require('../../images/dummyuser.webp')} alt='Image'/>
             <div className="user_chat_info">
                 <span>{user.firstname} {user.lastname} </span>
             </div>
         </div>
+          ))
 }
 
     
