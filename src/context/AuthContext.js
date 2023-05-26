@@ -8,6 +8,7 @@ export const AuthContext = createContext();
 const initialState = {
   isAuthenticated: false,
   user: JSON.parse(localStorage.getItem("user")) || null,
+  user_details: null
 };
 
 

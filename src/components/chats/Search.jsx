@@ -5,6 +5,7 @@ function Search() {
 
   const [username, setUsername] = useState("")
   const [user, setUser] = useState(null)
+  const [users, setUsers] = useState(null)
   const [error, setError] = useState(false)
 
   const handleSearch =async() => 
@@ -17,7 +18,7 @@ function Search() {
       console.log(username)
       const res = await findUserByName(username)
 
-      setUser(res[0])
+      setUsers(res)
       
       
     }
@@ -33,6 +34,9 @@ function Search() {
     e.code === "Enter" && handleSearch();
   }
 
+  const handleSelect = (chat, user_details) => {
+    dispatch({ type: 'CHANGE_CHAT', payload: chat });
+    dispatch({ type: 'UPDATE_OTHER_USER', payload: user_details });  };
 
 
   return (

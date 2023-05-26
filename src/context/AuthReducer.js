@@ -20,6 +20,10 @@ export const reducer = (state, action) => {
           isAuthenticated: true,
           user: action.payload,
         };
+      case 'UPDATE_USER_DETAILS':
+        return {
+          user_details:action.payload,
+        };
       case 'LOGOUT':
         return {
           isAuthenticated: false,
