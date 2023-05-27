@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { findUserByName } from '../../services/api/DataApi'
+import { AuthContext } from '../../context/AuthContext'
+import { ChatContext } from '../../context/ChatsContext'
 
 function Search() {
 
@@ -7,6 +9,8 @@ function Search() {
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState(null)
   const [error, setError] = useState(false)
+
+  const {state, dispatch} = useContext(ChatContext)
 
   const handleSearch =async() => 
   {

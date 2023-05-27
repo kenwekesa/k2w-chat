@@ -1,0 +1,28 @@
+
+
+.home 
+{
+    background-color: rgb(199, 209, 218);
+    min-height: 100vh;
+    display: flex;
+    .home_container 
+    {
+        background-color: white;
+        width: fit-content;
+        margin: auto;
+        padding: 120px 80px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        .chat_btn 
+        {
+           background-color: navy;
+           color: white;
+           border-radius: 4px;
+           padding: 4px 12px;
+
+           &:hover 
+           {
+            cursor: pointer;
+           }
+        }
+    }
+}
