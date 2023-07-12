@@ -14,9 +14,10 @@ function Login() {
   const navigate = useNavigate()
 
   const {dispatch} = useContext(AuthContext)
-
-  const handleLogin = () => 
+  
+  const handleLogin = (e) => 
   {
+    e.preventDefault()
     //handle login here
 
     signInWithEmailAndPassword(auth, email, password)
@@ -24,8 +25,9 @@ function Login() {
     {
       const user = userCredential.user
       console.log(user)
-     dispatch({type:"LOGIN", payload:user})
-      navigate('/')
+     dispatch({type:"LOGIN", payload:user});
+     console.log(user)
+      navigate('/chats')
     })
     .catch((error)=>
     {

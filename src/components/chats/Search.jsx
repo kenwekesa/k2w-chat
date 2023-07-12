@@ -12,6 +12,8 @@ function Search() {
 
   const {state, dispatch} = useContext(ChatContext)
 
+  
+
   const handleSearch =async() => 
   {
     //
@@ -23,6 +25,8 @@ function Search() {
       const res = await findUserByName(username)
 
       setUsers(res)
+
+      console.log(users)
       
       
     }
@@ -38,9 +42,12 @@ function Search() {
     e.code === "Enter" && handleSearch();
   }
 
-  const handleSelect = (chat, user_details) => {
-    dispatch({ type: 'CHANGE_CHAT', payload: chat });
-    dispatch({ type: 'UPDATE_OTHER_USER', payload: user_details });  };
+  const handleSelect = (user) => {
+    // dispatch({ type: 'CHANGE_CHAT', payload: chat });
+     dispatch({ type: 'UPDATE_OTHER_USER', payload: user }); 
+    console.log(user)
+  
+  };
 
 
   return (
@@ -49,10 +56,10 @@ function Search() {
         <div className='search_form'>
             <input type='text' placeholder='Find the chat' onKeyDown={handleKey} onChange={(e)=>setUsername(e.target.value)}/>
         </div>
-        {users.map(user=> 
+        {users?.map(user=> 
         (
 
-          <div className="user_chat">
+          <div className="user_chat" key={user.user_id} onClick={()=>handleSelect(user)}>
             <img className='profile_pic' src={require('../../images/dummyuser.webp')} alt='Image'/>
             <div className="user_chat_info">
                 <span>{user.firstname} {user.lastname} </span>

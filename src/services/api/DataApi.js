@@ -56,7 +56,7 @@ export const findUser = async (uid) => {
 
 
 export const findUserByName = async (name) => {
-    const collection_ref = collection(db, chats_collection_name)
+    const collection_ref = collection(db, users_collection_name)
     const q = query(collection_ref, or(where("firstname", "==", name), where("lastname","==", name)))
     const doc_refs = await getDocs(q);
      

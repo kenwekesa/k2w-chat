@@ -15,6 +15,13 @@ function Input() {
   const {state} = useContext(AuthContext)
 
   const {data} = useContext(ChatContext)
+
+  const handleKey =(e)=> 
+  {
+    
+    e.code === "Enter" && handleSend();
+  }
+
   const handleSend = () =>
   {
      try {
@@ -27,7 +34,7 @@ function Input() {
 
   return (
     <div className='chat_input'>
-         <input className='text_input' value={message} type='text' placeholder='Type message here...' onChange={e=>setMessage(e.target.value)}/>
+         <input className='text_input' value={message} type='text' placeholder='Type message here...' onKeyDown={handleKey} onChange={e=>setMessage(e.target.value)}/>
          <div className="send">
           <ImageOutlined/>
           

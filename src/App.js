@@ -19,7 +19,7 @@ const RequireAuth =({children}) =>
   const {state} = useContext(AuthContext)
    return state.user? children: <Navigate to='/login'/>
 }
-
+ 
 function App() {
   return (
     <div className="App">
@@ -28,7 +28,7 @@ function App() {
             <Routes>
               
               <Route path='/'>
-                <Route index element={<Home/>} />
+                <Route path='home' element={<RequireAuth><Home/></RequireAuth>} />
                 <Route path='login' element={<Login/>}/>
                 <Route path='signup' element={<Signup/>}/>
                 <Route path='chats' element={<RequireAuth><Chats/></RequireAuth>}/>

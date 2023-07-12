@@ -35,9 +35,9 @@ function Home() {
 }
 
 
-useEffect(() => {
-    fetchData()
-}, [])
+// useEffect(() => {
+//     fetchData()
+// }, [])
 
 
 useEffect(()=>

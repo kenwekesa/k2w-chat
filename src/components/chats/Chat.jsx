@@ -24,7 +24,8 @@ function Chat() {
             </div>
         </div>
         <Messages/>
-        <Input />
+        {data.other_user.user_id &&
+        <Input />}
     </div>
   )
 }
