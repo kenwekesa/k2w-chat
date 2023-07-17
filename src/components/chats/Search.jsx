@@ -45,6 +45,7 @@ function Search() {
   const handleSelect = (user) => {
     // dispatch({ type: 'CHANGE_CHAT', payload: chat });
      dispatch({ type: 'UPDATE_OTHER_USER', payload: user }); 
+     setUsers(null)
     console.log(user)
   
   };

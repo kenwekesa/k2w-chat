@@ -28,7 +28,7 @@ function App() {
             <Routes>
               
               <Route path='/'>
-                <Route path='home' element={<RequireAuth><Home/></RequireAuth>} />
+                <Route index element={<RequireAuth><Chats/></RequireAuth>} />
                 <Route path='login' element={<Login/>}/>
                 <Route path='signup' element={<Signup/>}/>
                 <Route path='chats' element={<RequireAuth><Chats/></RequireAuth>}/>

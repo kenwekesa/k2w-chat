@@ -234,7 +234,8 @@ and
           timestamps:serverTimestamp()
         });
         
-        
+        dispatch({ type: 'CHANGE_CHAT', payload: added_conversation });
+       // dispatch({ type: 'UPDATE_OTHER_USER', payload: user_details });
         const newMessageObject = 
         {timestamps:Timestamp.now(),
           senderId:newMessage.currentUserId, 
