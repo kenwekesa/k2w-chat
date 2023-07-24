@@ -275,8 +275,7 @@ export const retriveConversations = (currentUserId) =>
       const conversations = [];
       querySnapshot.forEach((doc) => {
         conversations.push(doc.data());
-      });
-      
+      });      
       resolve(conversations);
     }, (error) => {
       reject(error);

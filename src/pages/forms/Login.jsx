@@ -48,6 +48,7 @@ function Login() {
               />
               <span className='link_span'>I forgot my password</span>
               <div className='loginBtn btn' onClick={handleLogin}>Login now</div>
+              <div className='signup_link' onClick={()=>navigate("/signup")}>Do not have an account? Signup here</div>
           </form>
         </div>
         </div>

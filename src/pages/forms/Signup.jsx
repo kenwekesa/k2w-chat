@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { collection, addDoc,serverTimestamp } from 'firebase/firestore'
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 import { db, auth } from '../../firebase/firebase'
+import { useNavigate } from 'react-router-dom'
 
 export const DataContext = React.createContext()
 function Signup() {
@@ -22,7 +23,7 @@ function Signup() {
     const [passwordcheck, setPasswordcheck] = useState({"error":false, "message":""})
     
   
-    
+    const navigate = useNavigate() 
     const handleChange = (e) =>
     {
   
@@ -49,7 +50,6 @@ function Signup() {
   
               auth.onAuthStateChanged(async (user) => {
                 if (user) {
-                await sendEmailVerification(user);
                   // rest of the code for adding user to Firestore collection
               
   
@@ -59,6 +59,8 @@ function Signup() {
                   ...userDetails,
                   timestamps:serverTimestamp()
                 });
+                await sendEmailVerification(user);
+
                 console.log("Document written with ID: ", docRef.id);
               } catch (e) {
                 console.error("Error adding document: ", e);
@@ -67,7 +69,7 @@ function Signup() {
   
             }
           });
-             // navigate("/login")
+             navigate("/confirm", {data:data})
               // ...
           })
           .catch((error) => {
@@ -98,7 +100,7 @@ function Signup() {
   
           <div className="form_body">
             <form className='signupForm form' onSubmit={submitBtnHandler}>
-            <span className='heading'>Signup to K2W-chart</span>
+            <span className='heading'>Signup to K2W-Chat</span>
                 <div className="input_group">
                   <input className='firstname'  type='field' id='firstname' name="firstname" value={data!= null? data.firstname: ""} placeholder='First name' onChange={handleChange}/>  
                   <input className='lastname' name="lastname" value={data!= null? data.lastname: ""} type='field' placeholder='Last name' onChange={handleChange}/>
@@ -114,7 +116,7 @@ function Signup() {
   
                   <div className='buttons'>
   
-   <button className='nextBtn' type='submit'>Submit</button>
+   <button className='btn submitBtn' type='submit'>Submit</button>
   </div>
   
             </form>
